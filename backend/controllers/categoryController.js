@@ -23,7 +23,7 @@ exports.createCategory= function(req, res) {
         cat_nom:req.body.catnom
     }
     modelcat.createCategory(newData, (err, result)=>{
-        if (err) throw err,
+        if (err) throw err;
         res.json({message:'category created successfully'})
     });
 };

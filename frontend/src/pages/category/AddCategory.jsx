@@ -19,13 +19,23 @@ const handelChange = (e) => {
 const navigate=useNavigate()
 const submitHandler=(e)=>{
     e.preventDefault()
+    try {
+      
     axios.post("http://localhost:8080/categorie/add",formData)
-    .then(response=>{
-      //  alert(response.data.message)
-       toast("dddddd");
-        console.log(response.data.message)
-    })
-     
+      .then(response=>{
+        //  alert(response.data)
+        toast.success("success! "+response.data.message)
+        navigate('/list-cat')
+          console.log(response.data.message)
+      }).catch(err=>{
+        toast.info("erreur! "+err)
+        console.log(err)
+      })
+    } catch (error) {
+      toast.warning("erreur! "+error)
+      console.log(error)
+    }
+    // toast.success("success! "+response.data.message)
     // navigate('/list-cat')
 }
   // const submitHandler=(e)=>{
@@ -40,7 +50,7 @@ const submitHandler=(e)=>{
       <div className="row justify-content-center">
         <div className="col-md-6">
           <h1>Add Category</h1>
-          <form onSubmit={submitHandler}>
+          <form>
             <div className="form-group">
               <label htmlFor="catnom">Categorie </label>
               <input type="text" className="form-control"
@@ -50,7 +60,7 @@ const submitHandler=(e)=>{
               />
             </div>
             <div className="form-group">
-              <button className="btn btn-primary">save</button>
+              <button  onClick={submitHandler} className="btn btn-primary">save</button>
             </div>
           </form>
 

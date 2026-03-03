@@ -1,7 +1,7 @@
 const db= require("../config/Database");
 
 exports.getAllCategory= function(callback) {
-    db.query('SELECT * FROM categorie', callback)
+    db.query('SELECT * FROM categorie order by  id desc ', callback)
 };
 exports.getCategoryById= function(id,callback) {
     db.query('SELECT * FROM categorie WHERE id= ?', [id],callback)

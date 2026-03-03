@@ -13,7 +13,7 @@ const postRoute=require('./routers/routePost')
 const usRoute=require('./routers/routeUser')
 const contRoute=require('./routers/routeContact')
 const aboutRoute=require('./routers/routeAbout')
-const matRoute=require('./routers/routeMateriel')
+const prodRoute=require('./routers/routeProduct')
 app.use(express.static("public"));
 const corsOption={
     //1. specify the exact origin
@@ -41,7 +41,8 @@ app.use('/poste', postRoute)
 app.use('/auth', usRoute)
 app.use('/contact', contRoute )
 app.use('/about', aboutRoute )
-app.use('/materiel', matRoute )
+app.use('/produit', prodRoute )
+ 
 
 
 

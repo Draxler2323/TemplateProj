@@ -3,18 +3,21 @@ import { Route, Routes } from 'react-router-dom'
 import Dashboard from './components/Dashboard'
 import Category from './pages/category/Category'
 import AddCategory from './pages/category/AddCategory'
-import AddMateriel from './pages/materiels/AddMateriel'
-import Materiel from './pages/materiels/Materiel'
-
+import { ToastContainer, toast } from 'react-toastify';
+import Product from './pages/produits/Product'
+import Addproduct from './pages/produits/Addproduct'
 function App() {
   return ( 
+    
     <>
+    <ToastContainer/>
       <Routes>
         <Route path="/" element={<Dashboard/>} />
         <Route path="/add-cat" element={<AddCategory/>} />
         <Route path="/list-cat" element={<Category/>} />
-        <Route path="/add-mat" element={<AddMateriel/>} />
-        <Route path="/list-mat" element={<Materiel/>} />
+        <Route path="/list-prod" element={<Product/>} />
+        <Route path="/add-prod" element={<Addproduct/>} />
+        
        
       </Routes>
       

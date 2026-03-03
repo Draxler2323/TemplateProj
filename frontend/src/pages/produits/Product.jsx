@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router'
- 
-const Materiel = () => {
+import { ToastContainer, toast } from 'react-toastify';
+
+function Product() {
     const [data, setData] = useState([])
     useEffect(() => {
-        axios.get("http://localhost:8080/materiel")
+        // toast.success({msg})
+        axios.get("http://localhost:8080/produit")
          .then(response=>{
              setData(response.data)
              console.log(response.data)
@@ -13,10 +15,10 @@ const Materiel = () => {
     }, [])
   return (
     <div className="card shadow p-4">
-      <h2>Liste Materiel</h2>
+      <h2>Liste Produit</h2>
       <div className="card-body">
                             <div className="table-responsive">
-                                <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                                 <thead>
                             <tr>
                                 <th>ID</th>
@@ -27,16 +29,16 @@ const Materiel = () => {
                         </thead>
                         <tbody>
                             {
-                                data.map((mat,index)=>(
+                                data.map((prod,index)=>(
                                     <tr key={index}>
                                     <td>
-                                        {mat.id}
+                                        {prod.id}
                                     </td>
                                     <td>
-                                    {mat.libelle}
+                                    {prod.libelle}
                                     </td>
                                     <td>
-                                    {mat.quantite}
+                                    {prod.qte}
                                     </td>
                                     <td>
                                         <Link className="btn btn-success">Edit</Link>
@@ -54,4 +56,4 @@ const Materiel = () => {
   )
 }
 
-export default Materiel
+export default Product

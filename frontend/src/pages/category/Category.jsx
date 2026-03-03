@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router'
-// import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 const Category = () => {
     const [data, setData] = useState([])
     useEffect(() => {
-        
+        // toast.success({msg})
         axios.get("http://localhost:8080/categorie")
          .then(response=>{
              setData(response.data)
@@ -17,7 +17,7 @@ const Category = () => {
       <h2>Liste Category</h2>
       <div className="card-body">
                             <div className="table-responsive">
-                                <table className="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table className="table table-bordered" id="dataTable" width="100%" cellSpacing="0">
                                 <thead>
                             <tr>
                                 <th>ID</th>
